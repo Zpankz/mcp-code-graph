@@ -77,9 +77,9 @@ Add the following configuration to your MCP client (CodeGPT Extension, Cursor, C
       "Deep Graph MCP": {
          "command": "npx",
          "args": ["-y" , "mcp-code-graph@latest", 
-         "CODEGPT_API_KEY", // Required
-         "CODEGPT_ORG_ID", // Optional
-         "CODEGPT_GRAPH_ID" // Optional
+         "CODEGPT_API_KEY",
+         "CODEGPT_ORG_ID",
+         "CODEGPT_GRAPH_ID"
         ]
       }
    }
@@ -113,7 +113,7 @@ Follow these steps to integrate Deep Graph MCP Server with Claude Code.
 ### For Private Graphs
 
 ```bash
-claude mcp add "Deep Graph MCP" npx -- -y mcp-code-graph@latest CODEGPT_API_KEY
+claude mcp add "Deep Graph MCP" npx -- -y mcp-code-graph@latest CODEGPT_API_KEY CODEGPT_ORG_ID CODEGPT_GRAPH_ID
 ```
 
 ### For Public Graphs
@@ -124,7 +124,7 @@ claude mcp add "Deep Graph MCP" npx -- -y mcp-code-graph@latest username/reposit
 **For team sharing**, add the `-s project` flag:
 
 ```bash
-claude mcp add -s project "Deep Graph MCP" npx -- -y mcp-code-graph@latest CODEGPT_API_KEY
+claude mcp add -s project "Deep Graph MCP" npx -- -y mcp-code-graph@latest CODEGPT_API_KEY CODEGPT_ORG_ID CODEGPT_GRAPH_ID
 # or for public graphs
 claude mcp add -s project "Deep Graph MCP" npx -- -y mcp-code-graph@latest username/repository-name username2/repository-name
 ```
