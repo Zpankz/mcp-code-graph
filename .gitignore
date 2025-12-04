@@ -22,4 +22,4 @@ Thumbs.db
 *.idea/
 
 # MCP
-.mcp.json
+.mcp.json.smithery/

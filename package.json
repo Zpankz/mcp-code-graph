@@ -1,30 +1,49 @@
 {
 	"name": "mcp-code-graph",
-	"version": "1.1.2",
-	"description": "Code Graph MCP Server",
+	"version": "1.2.0",
+	"description": "Code Graph MCP Server - Smithery Compatible",
 	"license": "MIT",
 	"type": "module",
+	"module": "src/index.ts",
 	"bin": {
 		"mcp-code-graph": "dist/index.js"
 	},
+	"main": "dist/index.js",
 	"files": [
-		"dist"
+		"dist",
+		"smithery.yaml"
 	],
 	"scripts": {
 		"build": "tsc && chmod +x dist/index.js",
+		"smithery:build": "npx @smithery/cli build",
+		"smithery:dev": "npx @smithery/cli dev",
 		"prepare": "npm run build",
-		"watch": "tsc --watch"
+		"watch": "tsc --watch",
+		"start": "node dist/index.js",
+		"start:http": "PORT=8081 node dist/index.js",
+		"dev": "PORT=8081 tsx watch src/index.ts",
+		"inspect": "npx @modelcontextprotocol/inspector node dist/index.js"
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "^1.12.1",
+		"@smithery/sdk": "^1.7.4",
+		"cors": "^2.8.5",
 		"dotenv": "^16.5.0",
+		"express": "^4.21.2",
 		"zod": "^3.25.56"
 	},
 	"packageManager": "pnpm@9.8.0+sha512.8e4c3550fb500e808dbc30bb0ce4dd1eb614e30b1c55245f211591ec2cdf9c611cabd34e1364b42f564bd54b3945ed0f49d61d1bbf2ec9bd74b866fcdc723276",
 	"devDependencies": {
+		"@smithery/cli": "^1.4.6",
+		"@types/cors": "^2.8.17",
+		"@types/express": "^5.0.1",
 		"@types/node": "^22.15.30",
 		"shx": "^0.3.4",
+		"tsx": "^4.19.2",
 		"typescript": "^5.8.3"
+	},
+	"engines": {
+		"node": ">=18"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -33,10 +52,11 @@
 		"mcp",
 		"model-context-protocol",
 		"code-graph",
-		"codegpt"
+		"codegpt",
+		"smithery"
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/JudiniLabs/mcp-code-graph"
+		"url": "https://github.com/Zpankz/mcp-code-graph"
 	}
 }

@@ -1,0 +1,41 @@
+# Smithery Configuration for mcp-code-graph
+# Model Context Protocol server for CodeGPT Code Graphs
+
+runtime: typescript
+target: remote
+
+# Server start command configuration
+startCommand:
+  type: http
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: "CodeGPT API key for authentication"
+      orgId:
+        type: string
+        description: "CodeGPT Organization ID (optional)"
+      graphId:
+        type: string
+        description: "Specific graph ID to use (optional - if not set, list-graphs tool will be available)"
+      repoUrl:
+        type: string
+        description: "Repository URL in format org/repo (optional - alternative to graphId)"
+    required:
+      - apiKey
+
+# Example configuration for development/testing
+exampleConfig:
+  apiKey: "sk-your-codegpt-api-key"
+  orgId: "your-org-id"
+
+# Build configuration
+build:
+  installCommand: npm install
+  buildCommand: npm run build
+  outputDirectory: dist
+
+# Environment variable mapping
+env:
+  NODE_ENV: production
